@@ -13,7 +13,7 @@ package leetcode
  * '.' 匹配任意 单个字符
  * '*' 匹配 零个或多个 前面的那一个元素
  * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
- * 
+ *
  * 说明:
  * text 可能为空，且只包含从 a-z 的小写字母。
  * pattern 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
@@ -51,7 +51,7 @@ package leetcode
  * text = "mississippi"
  * pattern = "mis*is*pattern*."
  * 输出: false
- * 
+ *
  *
  */
 
@@ -86,4 +86,35 @@ fun isMatch(text: String?, pattern: String?): Boolean {
   }
   // printArray(dp);
   return dp[text.length][pattern.length]
+}
+
+fun isMatch2(text: String, pattern: String): Boolean {
+
+  println("比较 text = $text and pattern = $pattern")
+
+  if (pattern.isEmpty()) {
+    println("pattern.isEmpty and text.isEmpty = ${text.isEmpty()}")
+    return text.isEmpty()
+  }
+  // 第一个字符能对上
+  val firstMatch: Boolean =
+      text.isNotEmpty() && pattern[0] in arrayListOf(text[0], '.') // 处理「.」通配符
+  println("firstMatch = $firstMatch")
+  // 处理「*」通配符
+  return if (pattern.length >= 2 && pattern[1] == '*') {
+    val result =
+        isMatch2(text, pattern.substring(2)) || (firstMatch && isMatch2(text.substring(1), pattern))
+    println("处理*,匹配结果 $result")
+    result
+  } else {
+    val result = firstMatch && isMatch2(text.substring(1), pattern.substring(1))
+    println("无需处理*,匹配结果 $result")
+    result
+  }
+}
+
+fun main() {
+  println(isMatch2("aa", "a*"))
+  println(isMatch2("aab", "a.b"))
+  println(isMatch2("aab", "c*a*b"))
 }
