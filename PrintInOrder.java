@@ -1,4 +1,3 @@
-package leetcode;
 
 import java.util.concurrent.CountDownLatch;
 

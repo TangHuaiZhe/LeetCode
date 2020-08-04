@@ -1,4 +1,3 @@
-package leetcode
 
 import kotlin.math.abs
 

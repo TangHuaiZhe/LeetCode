@@ -1,4 +1,3 @@
-package leetcode;
 
 /**
  * author: tang created on: 2019-08-17 21:20 description:

@@ -1,5 +1,3 @@
-package leetcode
-
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -10,7 +8,7 @@ import java.util.HashMap
  * 这道题本来相同循环去做，但是发现循环的个数不固定，
  * 因此这种情况得用递归，使用BFS+hash table完成
  */
-internal class Solution {
+class Solution {
   fun letterCombinations(digits: String?): List<String> {
     if (digits == null || digits.isEmpty()) {
       return ArrayList()
@@ -25,7 +23,7 @@ internal class Solution {
     map['8'] = "tuv"
     map['9'] = "wxyz"
     val res = mutableListOf<String>()
-    helper("", digits, 0, res, map)
+    helper(s = "", digits = digits, i = 0, res = res, map = map)
     return res
   }
 
@@ -45,7 +43,7 @@ internal class Solution {
     if (letters != null) {
       for (j in 0 until letters.length) {
         println("j is $j and i+1 is ${(i + 1)} and letters is $letters")
-        helper(s + letters[j], digits, i + 1, res, map)
+        helper(s = s + letters[j], digits = digits, i = i + 1, res = res, map = map)
         println("res is $res")
       }
     }
