@@ -31,21 +31,20 @@ import java.util.LinkedList
 // Related Topics 设计
 // 👍 797 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class LRUCache(val capacity: Int) {
 
   var list: LinkedList<Int> = LinkedList()
 
   init {
-    list.set(0,0)
+    list[0] = 0
   }
 
   fun get(key: Int): Int {
     return if (list[key] != 0) {
       // update
       val result = list[key]
-      list[capacity-1] = result
+      list[capacity - 1] = result
       result
     } else {
       -1
@@ -53,9 +52,9 @@ class LRUCache(val capacity: Int) {
   }
 
   fun put(key: Int, value: Int) {
-    if (list.size == capacity ){
+    if (list.size == capacity) {
       list[key] = value
-      list[capacity-1] = list[capacity-2]
+      list[capacity - 1] = list[capacity - 2]
     } else {
       list[key] = value
     }
@@ -64,13 +63,12 @@ class LRUCache(val capacity: Int) {
 }
 
 fun main() {
-  var obj = LRUCache(100)
-  obj.put(1,1)
-  obj.put(2,2)
+  val obj = LRUCache(100)
+  obj.put(1, 1)
+  obj.put(2, 2)
   println(obj.get(2))
 //  obj.put(key,value)
 }
-
 
 /**
  * Your LRUCache object will be instantiated and called as such:
