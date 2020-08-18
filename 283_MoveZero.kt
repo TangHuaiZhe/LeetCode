@@ -14,7 +14,6 @@
 // Related Topics 数组 双指针
 // 👍 681 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution283 {
   fun moveZeroes(nums: IntArray): Unit {
@@ -42,12 +41,11 @@ class Solution283 {
     }
   }
 
-
   fun moveZeroes1(nums: IntArray) {
     //第一次遍历的时候，j指针记录非0的个数，只要是非0的统统都赋给nums[j]
     var j = 0
     nums.forEachIndexed { index, value ->
-      if(nums[index]!=0) {
+      if (nums[index] != 0) {
         nums[j++] = value
       }
     }
@@ -76,10 +74,9 @@ class Solution283 {
   }
 }
 
-
 //leetcode submit region end(Prohibit modification and deletion)
 fun main() {
-  val nums = intArrayOf(4,2,4,0,0,3,0,5,1,0)
+  val nums = intArrayOf(4, 2, 4, 0, 0, 3, 0, 5, 1, 0)
   Solution283().moveZeroes2(nums)
   nums.forEach {
     println("$it")

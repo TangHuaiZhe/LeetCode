@@ -23,7 +23,6 @@
 // Related Topics 贪心算法 双指针
 // 👍 190 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution763 {
 //  fun partitionLabels(S: String): List<Int> {

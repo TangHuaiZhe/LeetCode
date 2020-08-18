@@ -6,7 +6,6 @@ import kotlin.math.min
  * description:
  */
 
-
 // 求两个有序数组的第k个数
 
 //给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
@@ -89,8 +88,8 @@ fun getKth(
 }
 
 fun main() {
-  val nums1: IntArray = intArrayOf(3,4,5,7)
-  val nums2: IntArray = intArrayOf(8,9,20,21)
+  val nums1: IntArray = intArrayOf(3, 4, 5, 7)
+  val nums2: IntArray = intArrayOf(8, 9, 20, 21)
   val findMedianSortedArrays = findMedianSortedArrays(nums2, nums1)
   println(findMedianSortedArrays)
 }

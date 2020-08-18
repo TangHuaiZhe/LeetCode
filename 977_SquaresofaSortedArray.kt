@@ -1,4 +1,3 @@
-
 /**
  * author: tang
  * created on: 2019-08-22 11:28
@@ -17,8 +16,6 @@
 //
 //输入：[-7,-3,2,3,11]
 //输出：[4,9,9,49,121]
-
-
 
 //方法二：双指针
 //思路
@@ -39,12 +36,8 @@
 //那么，现在我们就在使用两个指针分别读取两个递增的数组了（按元素的平方排序）。
 // 接下来，我们可以使用双指针的技巧合并这两个数组。
 
-
-
-
-
 fun sortedSquares(array: IntArray): IntArray {
-  return array.map { it*it }.sorted().toIntArray()
+  return array.map { it * it }.sorted().toIntArray()
 }
 
 fun sortedSquares2(array: IntArray): IntArray {
@@ -54,8 +47,7 @@ fun sortedSquares2(array: IntArray): IntArray {
   while (j < size && array[j] < 0)
     j++
   // 指针 i 反向读取负数部分
-  var i = j-1
-
+  var i = j - 1
 
   val ans = IntArray(size)
   // 比较两部分元素的大小并存入ans数组
@@ -81,7 +73,6 @@ fun sortedSquares2(array: IntArray): IntArray {
   }
   return ans
 }
-
 
 fun main() {
   val list = listOf(-3, -2, -1, 4, 5, 6).toIntArray()

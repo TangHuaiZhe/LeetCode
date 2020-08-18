@@ -59,7 +59,6 @@ class Foo {
   }
 }
 
-
 class Foo2 {
   private CountDownLatch countDownLatchA;
   private CountDownLatch countDownLatchB;
