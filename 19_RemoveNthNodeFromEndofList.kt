@@ -46,13 +46,14 @@ fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
   for (i in 0..n) {
     println(i)
     first = first?.next
+    println(first)
   }
   // Move first to the end, maintaining the gap
   while (first != null) {
-    first = first.next;
+    first = first.next
     second = second.next!!
   }
-  second.next = second.next?.next;
+  second.next = second.next?.next
   return dummy.next
 }
 
@@ -69,5 +70,8 @@ fun main() {
   node4.next = node5
 
   println(removeNthFromEnd(node1, 2))
+
+  val node11 = ListNode(1)
+  println(removeNthFromEnd(node11, 1))
 
 }
