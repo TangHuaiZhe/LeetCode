@@ -1,36 +1,39 @@
 import java.util.HashMap
 
+//给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
+//
+// 换句话说，第一个字符串的排列之一是第二个字符串的 子串 。
+//
+//
+//
+// 示例 1：
+//
+//
+//输入: s1 = "ab" s2 = "eidbaooo"
+//输出: True
+//解释: s2 包含 s1 的排列之一 ("ba").
+//
 //
 // 示例 2：
 //
 //
-//输入：s = "a", t = "a"
-//输出："a"
+//输入: s1= "ab" s2 = "eidboaoo"
+//输出: False
 //
 //
-// 示例 3:
-//
-//
-//输入: s = "a", t = "aa"
-//输出: ""
-//解释: t 中两个字符 'a' 均应包含在 s 的子串中，
-//因此没有符合条件的子字符串，返回空字符串。
-//
-// 输入：s = "ADOBECODEBANC", t = "ABC"
-// 输出："BANC"
 //
 //
 // 提示：
 //
 //
-// 1 <= s.length, t.length <= 105
-// s 和 t 由英文字母组成
+// 1 <= s1.length, s2.length <= 104
+// s1 和 s2 仅包含小写字母
 //
-//
-//
-//进阶：你能设计一个在 o(n) 时间内解决此问题的算法吗？ Related Topics 哈希表 字符串 滑动窗口
-// 👍 1245 👎 0
-internal class Solution76 {
+// Related Topics 哈希表 双指针 字符串 滑动窗口
+// 👍 377 👎 0
+
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution567 {
 
   //(需要的字符串,该字符串需要的数量)
   private var needMap: HashMap<Char, Int> = HashMap()
@@ -38,7 +41,7 @@ internal class Solution76 {
   // key是字符串,value是该字符串在窗口中出现了多少次
   private var windowMap: HashMap<Char, Int> = HashMap()
 
-  fun minWindow(inputString: String, need: String): String {
+  fun checkInclusion(need: String, inputString: String): Boolean {
 
     for (element in need) {
       needMap[element] = needMap.getOrDefault(element, 0) + 1
@@ -69,7 +72,8 @@ internal class Solution76 {
       println("valid: $valid")
 
       // need to 开始收缩?
-      while (valid == needMap.size) {
+      while (windowRight - windowLeft >= need.length) {
+        if (valid == needMap.size) return true
         //已经全部找到need字符串，开始从左侧缩小window
         println("开始左移窗口..")
         println("window len: ${windowRight - windowLeft}")
@@ -94,13 +98,17 @@ internal class Solution76 {
         }
       }
     }
-    return if (len == Int.MAX_VALUE) "" else inputString.substring(start, start + len)
+    return false
   }
 }
 
 fun main() {
-  val need = "aa"
-  val string = "aa"
-  val result = Solution76().minWindow(string, need)
+  val need = "ab"
+  val string = "eidbaooo"
+  val result = Solution567().checkInclusion(need, string)
   println(result)
+
+  // val result1 = Solution567().checkInclusion(need, "eidboaoo")
+  // println(result1)
 }
+//leetcode submit region end(Prohibit modification and deletion)
