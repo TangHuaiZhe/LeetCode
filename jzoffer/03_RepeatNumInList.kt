@@ -2,13 +2,7 @@ package jzoffer
 
 import java.util.HashSet
 
-
-
-
 /**
- * author: i530643
- * created on: 3/4/21 1:54 PM
- * description:
 
 找出数组中重复的数字。
 在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。
@@ -31,8 +25,27 @@ fun findRepeatNumber(nums: IntArray): Int {
   return repeat
 }
 
+fun findRepeatNumber2(nums: IntArray): Int {
+  var result = -1
+  nums.forEachIndexed { index, _ ->
+    if (nums[index] == index) {
+    //说明此数字已在对应索引位置，无需交换，因此跳过
+    }else if (nums[nums[index]] == nums[index]) {
+      //代表索引 nums[i]处和索引 i 处的元素值都为 nums[i] ，即找到一组重复值，返回此值 nums[i]
+      result = nums[index]
+    } else {
+      //否则， 交换索引为 i 和 nums[i] 的元素值，将此数字交换至对应索引位置
+      val temp = nums[nums[index]] // nums[nums[index]]
+      nums[nums[index]] = nums[index]
+      nums[index] = temp
+    }
+  }
+  return result
+}
+
 fun main() {
-  val nums = intArrayOf(2,3,1,0,2,5,3)
+  val nums = intArrayOf(2, 3, 1, 0, 2, 5, 3)
   val findRepeatNumber = findRepeatNumber(nums)
   println(findRepeatNumber)
+  println(findRepeatNumber2(intArrayOf(0, 1, 2, 3, 4, 11, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)))
 }

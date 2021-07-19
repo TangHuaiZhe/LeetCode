@@ -48,6 +48,7 @@ import kotlin.math.min
 // 👍 1703 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
+// 编辑距离
 class Solution72 {
 
   private lateinit var word1: String
