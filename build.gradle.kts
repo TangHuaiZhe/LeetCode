@@ -14,7 +14,7 @@ version = "1.2.1"
 sourceSets {
   main {
     java {
-      setSrcDirs(listOf("src", "jzoffer", "interview"))
+      setSrcDirs(listOf("leetcode", "jzoffer", "interview","dynamicProgramming","codility"))
     }
   }
 }
