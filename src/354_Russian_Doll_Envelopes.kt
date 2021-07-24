@@ -74,7 +74,7 @@ class Solution354 {
         }
       }
     }
-    return dp.max()!!
+    return dp.maxOrNull()!!
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
