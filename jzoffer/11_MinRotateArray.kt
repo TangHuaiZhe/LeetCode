@@ -32,9 +32,15 @@ fun minArray(numbers: IntArray): Int {
     }
 
     indexMid = (index2 + index1) / 2
-    if (numbers[indexMid] > numbers[index1]) {
+    // 这种情况是考虑类似这种数组 [1, 0, 1, 1, 1] 和[1,1,1,0,1]都可以使[0,1,1,1,1]的旋转
+    // 原来的判断逻辑就没用了
+    if (numbers[index2] == numbers[index1] && numbers[indexMid] == numbers[index1]) {
+      return numbers.minOrNull()!!
+    }
+
+    if (numbers[indexMid] >= numbers[index1]) {
       index1 = indexMid
-    } else if (numbers[indexMid] < numbers[index1]) {
+    } else if (numbers[indexMid] <= numbers[index1]) {
       index2 = indexMid
     }
   }
@@ -43,5 +49,7 @@ fun minArray(numbers: IntArray): Int {
 }
 
 fun main() {
-  println(minArray(intArrayOf(3, 4, 5, 1, 2)))
+  // println(minArray(intArrayOf(3, 4, 5, 1, 2)))
+  // println(minArray(intArrayOf(1, 0, 1, 1, 1)))
+  println(minArray(intArrayOf(2, 2, 2, 0, 1)))
 }
