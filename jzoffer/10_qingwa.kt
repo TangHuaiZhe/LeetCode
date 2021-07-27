@@ -1,5 +1,8 @@
 package jzoffer
 
+/**
+ * 青蛙跳台阶问题，就是斐波那契数列问题
+ */
 fun numWays(n: Int): Int {
 
   if (n == 0 || n == 1) {
