@@ -20,7 +20,7 @@ import kotlin.math.max
  *
  */
 
-internal class Solution58 {
+internal class Solution53 {
   fun maxSubArray(nums: IntArray): Int {
     //dp数组的定义: dp[i]==索引i结尾的子序列的和
     //递推公式: dp[i] = max(dp[i-1]+nums[i],nums[i])
@@ -52,17 +52,17 @@ internal class Solution58 {
 }
 
 fun main() {
-  println(Solution58().maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
-  println(Solution58().maxSubArray(intArrayOf(1)))
-  println(Solution58().maxSubArray(intArrayOf(0)))
-  println(Solution58().maxSubArray(intArrayOf(-1)))
-  println(Solution58().maxSubArray(intArrayOf(-100000)))
+  println(Solution53().maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
+  println(Solution53().maxSubArray(intArrayOf(1)))
+  println(Solution53().maxSubArray(intArrayOf(0)))
+  println(Solution53().maxSubArray(intArrayOf(-1)))
+  println(Solution53().maxSubArray(intArrayOf(-100000)))
 
 
-  println(Solution58().maxSubArray2(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
-  println(Solution58().maxSubArray2(intArrayOf(1)))
-  println(Solution58().maxSubArray2(intArrayOf(0)))
-  println(Solution58().maxSubArray2(intArrayOf(-1)))
-  println(Solution58().maxSubArray2(intArrayOf(-100000)))
+  println(Solution53().maxSubArray2(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
+  println(Solution53().maxSubArray2(intArrayOf(1)))
+  println(Solution53().maxSubArray2(intArrayOf(0)))
+  println(Solution53().maxSubArray2(intArrayOf(-1)))
+  println(Solution53().maxSubArray2(intArrayOf(-100000)))
 
 }
