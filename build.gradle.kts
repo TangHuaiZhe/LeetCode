@@ -12,7 +12,7 @@ java {
 sourceSets {
   main {
     java {
-      setSrcDirs(listOf("leetcode", "jzoffer", "interview","dynamicProgramming","codility"))
+      setSrcDirs(listOf("leetcode", "jzoffer", "interview", "codility"))
     }
   }
 }
