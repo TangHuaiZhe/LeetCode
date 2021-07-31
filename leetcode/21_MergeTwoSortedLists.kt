@@ -1,11 +1,5 @@
-/**
- * author: tang
- * created on: 2019-08-22 10:08
- * description:
- */
-
 // 将两个有序链表合并为一个新的有序链表并返回。
-// 新链表是通过拼接给定的两个链表的所有节点组成的。 
+// 新链表是通过拼接给定的两个链表的所有节点组成的。
 //
 //示例：
 //
@@ -20,7 +14,7 @@
 //
 //    otherwise:
 //    list2[0]+merge(list1,list2[1:])
-//    ​
+
 //    也就是说，两个链表头部较小的一个与剩下元素的 merge 操作结果合并。
 //
 //    算法
@@ -65,24 +59,24 @@ fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
 }
 
 fun mergeTwoLists2(l1: ListNode?, l2: ListNode?): ListNode? {
-  var l1_ = l1
-  var l2_ = l2
+  var list1 = l1
+  var list2 = l2
 
   // maintain an unchanging reference to node ahead of the return node.
   val prehead = ListNode(-1);
-  var prev = prehead
-  while (l1_ != null && l2_ != null) {
-    if (l1_.`val` <= l2_.`val`) {
-      prev.next = l1_
-      l1_ = l1_.next
+  var current = prehead
+  while (list1 != null && list2 != null) {
+    if (list1.`val` <= list2.`val`) {
+      current.next = list1
+      list1 = list1.next
     } else {
-      prev.next = l2_
-      l2_ = l2_.next
+      current.next = list2
+      list2 = list2.next
     }
-    prev = prev.next!!
+    current = current.next!!
   }
   // exactly one of l1 and l2 can be non-null at this point, so connect
   // the non-null list to the end of the merged list.
-  prev.next = l1_ ?: l2_
+  current.next = list1 ?: list2
   return prehead.next;
 }
