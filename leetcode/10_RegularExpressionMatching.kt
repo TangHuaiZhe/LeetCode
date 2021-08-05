@@ -61,13 +61,13 @@ fun isMatch(text: String?, pattern: String?): Boolean {
   // 二维boolean数组 [text.length() + 1] [pattern.length() + 1]
   val dp = Array(text.length + 1) { BooleanArray(pattern.length + 1) }
   dp[0][0] = true
-  for (i in 0 until pattern.length) {
+  for (i in pattern.indices) {
     if (pattern[i] == '*' && dp[0][i - 1]) {
       dp[0][i + 1] = true
     }
   }
-  for (i in 0 until text.length) {
-    for (j in 0 until pattern.length) {
+  for (i in text.indices) {
+    for (j in pattern.indices) {
       if (pattern[j] == '.' || pattern[j] == text[i]) {
         dp[i + 1][j + 1] = dp[i][j]
       }
