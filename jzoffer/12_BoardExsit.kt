@@ -95,7 +95,7 @@ fun main() {
   val board1 = arrayOf(
     charArrayOf('A', 'B', 'C', 'E'),
     charArrayOf('S', 'F', 'C', 'S'),
-    charArrayOf('A', 'D', 'E', 'E'),
+    charArrayOf('A', 'D', 'E', 'E')
   )
   val word = "ABCCED"
   val exist = Solution1().exist(board1, word)

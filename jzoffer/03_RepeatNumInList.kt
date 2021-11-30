@@ -30,7 +30,7 @@ fun findRepeatNumber2(nums: IntArray): Int {
   nums.forEachIndexed { index, _ ->
     if (nums[index] == index) {
     //说明此数字已在对应索引位置，无需交换，因此跳过
-    }else if (nums[nums[index]] == nums[index]) {
+    } else if (nums[nums[index]] == nums[index]) {
       //代表索引 nums[i]处和索引 i 处的元素值都为 nums[i] ，即找到一组重复值，返回此值 nums[i]
       result = nums[index]
     } else {
