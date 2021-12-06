@@ -58,8 +58,8 @@ class Solution438 {
     var valid = 0
 
     // 子串的开始索引位置
-    var start = 0
-    var len = Int.MAX_VALUE
+    // var start = 0
+    // var len = Int.MAX_VALUE
     val result = ArrayList<Int>()
 
 
@@ -85,14 +85,14 @@ class Solution438 {
         }
         //已经全部找到need字符串，开始从左侧缩小window
         println("开始左移窗口..")
-        println("window len: ${windowEnd - windowStart}")
-        println("len: $len")
-        if (windowEnd - windowStart < len) {
-          start = windowStart
-          len = windowEnd - windowStart
-          println("start: $start")
-        }
-        println("windowString: ${inputString.substring(start, start + len)}")
+        // println("window len: ${windowEnd - windowStart}")
+        // println("len: $len")
+        // if (windowEnd - windowStart < len) {
+        //   start = windowStart
+        //   len = windowEnd - windowStart
+        //   println("start: $start")
+        // }
+        // println("windowString: ${inputString.substring(start, start + len)}")
         //d移出窗口
         val d = inputString[windowStart]
         windowStart++
@@ -101,7 +101,7 @@ class Solution438 {
           if (windowMap[d] == needMap[d]) {
             valid--
           }
-          // 发现了需要的c2，windowCount更新，否则不要更新，因为存储的时候
+          // 发现了需要的c2，windowCount更新，否则不要更新
           windowMap[d] =
             windowMap.getOrDefault(d, 0) - 1
         }

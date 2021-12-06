@@ -32,10 +32,10 @@ import java.util.HashMap
 // 👍 1245 👎 0
 internal class Solution76 {
 
-  //(需要的字符串,该字符串需要的数量)
+  //HashMap(需要的字符,该字符需要的数量)
   private var needMap: HashMap<Char, Int> = HashMap()
 
-  // key是字符串,value是该字符串在窗口中出现了多少次
+  // key是字符,value是该字符在窗口中出现了多少次
   private var windowMap: HashMap<Char, Int> = HashMap()
 
   fun minWindow(inputString: String, need: String): String {
@@ -49,7 +49,7 @@ internal class Solution76 {
     var windowRight = 0
     var valid = 0
 
-    var len = Int.MAX_VALUE
+    var minLen = Int.MAX_VALUE
     // 最小子串的开始索引位置
     var start = 0
 
@@ -57,29 +57,23 @@ internal class Solution76 {
       // [0 ~ inputStringLen - 1] 即将进入窗口的c1
       val c1 = inputString[windowRight]
       windowRight++
-      println("windowRight:$windowRight")
-      println("c1:$c1")
       if (needMap.containsKey(c1)) {
         //按照need中的字符串，维护一个window,key是字符串,value是该字符串在窗口中出现了多少次
         windowMap[c1] = windowMap.getOrDefault(c1, 0) + 1
         if (windowMap[c1] == needMap[c1])
           valid++
       }
-      println("windowCount +1 : $windowMap")
       println("valid: $valid")
 
       // need to 开始收缩?
       while (valid == needMap.size) {
         //已经全部找到need字符串，开始从左侧缩小window
         println("开始左移窗口..")
-        println("window len: ${windowRight - windowLeft}")
-        println("len: $len")
-        if (windowRight - windowLeft < len) {
+        if (windowRight - windowLeft < minLen) {
           start = windowLeft
-          len = windowRight - windowLeft
-          println("start: $start")
+          minLen = windowRight - windowLeft
+          println("current min len = $minLen")
         }
-        println("windowString: ${inputString.substring(start, start + len)}")
         //d移出窗口
         val d = inputString[windowLeft]
         windowLeft++
@@ -88,19 +82,21 @@ internal class Solution76 {
           if (windowMap[d] == needMap[d]) {
             valid--
           }
-          // 发现了需要的c2，windowCount更新，否则不要更新，因为存储的时候
+          // 发现了needMap需要的c2，windowCount更新，否则不要更新
           windowMap[d] =
             windowMap.getOrDefault(d, 0) - 1
+          println("need to update windows $windowMap")
         }
+        println("windowString: ${inputString.substring(start, start + minLen)}")
       }
     }
-    return if (len == Int.MAX_VALUE) "" else inputString.substring(start, start + len)
+    return if (minLen == Int.MAX_VALUE) "" else inputString.substring(start, start + minLen)
   }
 }
 
 fun main() {
-  val need = "aa"
-  val string = "aa"
+  val need = "ABC"
+  val string = "ADOBECODEBANC"
   val result = Solution76().minWindow(string, need)
   println(result)
 }

@@ -35,7 +35,7 @@ fun minArray(numbers: IntArray): Int {
     // 这种情况是考虑类似这种数组 [1, 0, 1, 1, 1] 和[1,1,1,0,1]都可以使[0,1,1,1,1]的旋转
     // 原来的判断逻辑就没用了
     if (numbers[index2] == numbers[index1] && numbers[indexMid] == numbers[index1]) {
-      return numbers.min()!!
+      return numbers.minOrNull()!!
     }
 
     if (numbers[indexMid] >= numbers[index1]) {

@@ -41,6 +41,7 @@ class Solution567 {
   // key是字符串,value是该字符串在窗口中出现了多少次
   private var windowMap: HashMap<Char, Int> = HashMap()
 
+  // 判断 s 中是否存在 t 的排列
   fun checkInclusion(need: String, inputString: String): Boolean {
 
     for (element in need) {
@@ -92,7 +93,7 @@ class Solution567 {
           if (windowMap[d] == needMap[d]) {
             valid--
           }
-          // 发现了需要的c2，windowCount更新，否则不要更新，因为存储的时候
+          // 发现了需要的c2，windowCount更新，否则不要更新
           windowMap[d] =
             windowMap.getOrDefault(d, 0) - 1
         }
