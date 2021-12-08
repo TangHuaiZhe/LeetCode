@@ -42,19 +42,18 @@ import kotlin.math.max
  */
 class Solution354 {
   fun maxEnvelopes(envelopes: Array<IntArray>): Int {
-    envelopes.sortWith(Comparator { o1, o2 ->
+    envelopes.sortWith { o1, o2 ->
       if (o1[0] == o2[0]) {
         o2[1] - o1[1]
       } else {
         o1[0] - o2[0]
       }
-    })
+    }
     val height = IntArray(envelopes.size)
     envelopes.forEachIndexed { index, it ->
       println("${it[0]} ${it[1]}")
       height[index] = it[1]
     }
-
     return lengthOfLIS(height)
   }
 

@@ -69,13 +69,14 @@ internal class Solution887 {
       return memo[Pair(eggNum, floors)]!!
     }
 
-    var i = 1
+    var i = 1 // 丢鸡蛋的楼层
     var res = Int.MAX_VALUE
+    // 从第1层开始丢鸡蛋，推导出之后每一层至少需要丢几次鸡蛋才能确定鸡蛋正好碎掉的楼层
     while (i < floors + 1) {
       res = min(res, max( //最坏的情况
-          superEggDrop(eggNum, floors - i), // 鸡蛋没碎
-          superEggDrop(eggNum - 1, i - 1) // 碎了
-      ) + 1)
+          superEggDrop(eggNum, floors - i), // 鸡蛋没碎，鸡蛋数量不变，楼层需要变为【i+1。。floors】，一共floors-i层
+          superEggDrop(eggNum - 1, i - 1) // 碎了，鸡蛋数量-1，楼层变为【1。。i-1】，共i-1层楼
+      ) + 1)// 碎没碎 操作数都是+1
       i++
     }
     memo[Pair(eggNum, floors)] = res
