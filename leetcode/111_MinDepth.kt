@@ -50,7 +50,7 @@ class TreeNode(var `val`: Int) {
   var left: TreeNode? = null
   var right: TreeNode? = null
   override fun toString(): String {
-    return "val=$`val`,left:${left?.`val`}" + "right:${right?.`val`}"
+    return "root.val=$`val`, left.val=${left?.`val`}, right.val=${right?.`val`}"
   }
 }
 
@@ -59,6 +59,7 @@ class Solution111 {
     if (root == null) {
       return 0
     }
+    //BFS
     val deque: Deque<TreeNode?> = LinkedList()
     deque.offer(root)
     var level = 1
