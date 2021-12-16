@@ -49,6 +49,9 @@ import java.util.LinkedList
 class TreeNode(var `val`: Int) {
   var left: TreeNode? = null
   var right: TreeNode? = null
+  override fun toString(): String {
+    return "val=$`val`,left:${left?.`val`}" + "right:${right?.`val`}"
+  }
 }
 
 class Solution111 {
