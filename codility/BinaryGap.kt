@@ -1,8 +1,6 @@
 package codility
 
 /**
- * author: i530643
- * created on: 3/1/21 2:26 PM
  * description:
  */
 
